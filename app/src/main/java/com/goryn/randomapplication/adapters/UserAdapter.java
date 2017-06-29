@@ -1,4 +1,4 @@
-package com.goryn.randomapplication.adapter;
+package com.goryn.randomapplication.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.goryn.randomapplication.Entity.User;
+import com.goryn.randomapplication.models.User;
 import com.goryn.randomapplication.R;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
-    private List<User> userList;
+    List<User> userList;
 
     public UserAdapter(List<User> userList){
         this.userList = userList;
@@ -39,7 +39,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         return userList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTestText;
         public ViewHolder(View itemView) {
             super(itemView);

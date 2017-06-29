@@ -1,4 +1,4 @@
-package com.goryn.randomapplication.Entity;
+package com.goryn.randomapplication.models;
 
 /**
  * Created by Odinn on 29.06.2017.
