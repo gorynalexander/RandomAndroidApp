@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.goryn.randomapplication.UserService;
@@ -24,6 +27,7 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvUserList;
     private UserAdapter rvAdapter;
+    private List<UserInfo> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         initRecyclerView();
 
-        getDataFromApi();
+        createListOfGottenData();
+
+    }
+
+    private void createListOfGottenData() {
+        /*
+            У них в API есть запрос только на 1го юзера, пришлось выдумать подобный костыль
+         */
+        int i = 0;
+        while (i < 5) {
+            getDataFromApi();
+            i++;
+        }
     }
 
     private void getDataFromApi() {
@@ -43,18 +59,22 @@ public class MainActivity extends AppCompatActivity {
 
         UserService service = retrofit.create(UserService.class);
         Call<UserInfo> call = service.getUserInfo();
+
         call.enqueue(new Callback<UserInfo>() {
             @Override
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
                 UserInfo userInfo = response.body();
-                Toast.makeText(MainActivity.this, userInfo.getResults().get(0).getName().getTitle() , Toast.LENGTH_SHORT).show();
+                // userInfo.getResults().get(0).getLocation().getCity();
+                userList.add(userInfo);
+                rvAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<UserInfo> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "sosat", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "failure on enqueue", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private void initRecyclerView() {
@@ -62,22 +82,32 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvUserList.setLayoutManager(layoutManager);
-
         rvAdapter = new UserAdapter(mockData());
         rvUserList.setAdapter(rvAdapter);
 
     }
 
-    private List<User> mockData() {
-        List<User> list = new ArrayList<>();
-        list.add(new User("kek2"));
-        list.add(new User("kek1"));
-        list.add(new User("kek2"));
-        list.add(new User("kek2"));
-        list.add(new User("kek2"));
-        list.add(new User("kek2"));
-        list.add(new User("kek2"));
-        list.add(new User("kek2"));
-        return list;
+    private List<UserInfo> mockData() {
+        userList = new ArrayList<>();
+        return userList;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itemLoadMore:
+                createListOfGottenData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 }
