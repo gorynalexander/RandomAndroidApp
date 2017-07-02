@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlItemLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
-    android:background="?android:attr/selectableItemBackground">
+    android:padding="10dp">
 
-    <com.alexzh.circleimageview.CircleImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivThumbnail"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -25,6 +27,6 @@
         android:layout_toRightOf="@+id/ivThumbnail"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 </RelativeLayout>
