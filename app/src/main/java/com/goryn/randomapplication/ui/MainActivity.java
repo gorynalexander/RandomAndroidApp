@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.goryn.randomapplication.UserService;
-import com.goryn.randomapplication.models.User;
 import com.goryn.randomapplication.R;
 import com.goryn.randomapplication.adapters.UserAdapter;
 import com.goryn.randomapplication.models.UserInfo;
@@ -33,10 +32,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        initRecyclerView();
-
+        userList = new ArrayList<>();
         createListOfGottenData();
+        initRecyclerView();
 
     }
 
@@ -65,8 +63,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
                 UserInfo userInfo = response.body();
                 // userInfo.getResults().get(0).getLocation().getCity();
-                userList.add(userInfo);
-                rvAdapter.notifyDataSetChanged();
+                if (userInfo != null) {
+                    userList.add(userInfo);
+                    rvAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<UserInfo> mockData() {
-        userList = new ArrayList<>();
         return userList;
     }
 

@@ -10,7 +10,9 @@ import java.util.List;
  */
 
 public class UserInfo {
-
+    /*
+        Объект который собирает в себе все результаты
+     */
 
     @SerializedName("results")
     @Expose
