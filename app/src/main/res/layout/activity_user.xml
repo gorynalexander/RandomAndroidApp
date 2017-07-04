@@ -7,125 +7,357 @@
     android:layout_height="match_parent"
     tools:context="com.goryn.randomapplication.ui.UserActivity">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardUseCompatPadding="true"
-        android:id="@+id/cvPersonal">
-
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ivAvatar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:id="@+id/tvBdayTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ivAvatar"
-                android:layout_marginBottom="5dp"
-                android:text="Birthday" />
-
-
-            <TextView
-                android:id="@+id/tvBday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvBdayTitle"
-                android:layout_marginBottom="10dp"
-                android:text="25 may 1994"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                card_view:cardUseCompatPadding="true"
+                android:id="@+id/cvPersonal">
 
-            <!-- divider -->
-            <TextView
-                android:id="@+id/tvGenderTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvBday"
-                android:layout_marginBottom="5dp"
-                android:text="Gender" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp">
 
-            <TextView
-                android:id="@+id/tvGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvGenderTitle"
-                android:layout_marginBottom="10dp"
-                android:text="Male"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardUseCompatPadding="true"
-        android:layout_below="@+id/cvPersonal">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp">
-
-            <TextView
-                android:id="@+id/contactsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:text="Contacts"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="15dp"/>
-
-            <TextView
-                android:id="@+id/stateTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/contactsTitle"
-                android:layout_marginBottom="5dp"
-                android:text="State" />
+                    <TextView
+                        android:id="@+id/tvBdayTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ivAvatar"
+                        android:layout_marginBottom="5dp"
+                        android:text="Birthday" />
 
 
-            <TextView
-                android:id="@+id/tvState"
+                    <TextView
+                        android:id="@+id/tvBday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvBdayTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="25 may 1994"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvGenderTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvBday"
+                        android:layout_marginBottom="5dp"
+                        android:text="Gender" />
+
+                    <TextView
+                        android:id="@+id/tvGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvGenderTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="Male"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvContacts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/stateTitle"
-                android:layout_marginBottom="10dp"
-                android:text="25 may 1994"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                card_view:cardUseCompatPadding="true"
+                android:layout_below="@+id/cvPersonal">
 
-            <!-- divider -->
-            <TextView
-                android:id="@+id/tvCityTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvState"
-                android:layout_marginBottom="5dp"
-                android:text="City" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp">
 
-            <TextView
-                android:id="@+id/tvCity"
-                android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/contactsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/contacts"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/stateTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/contactsTitle"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/state" />
+
+
+                    <TextView
+                        android:id="@+id/tvState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stateTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="25 may 1994"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvCityTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvState"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/city" />
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvCityTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="Odessa"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvStreetTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvCity"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/street" />
+
+                    <TextView
+                        android:id="@+id/tvStreet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvStreetTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="Zabolotnogo"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvPostcodeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvStreet"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/postcode" />
+
+                    <TextView
+                        android:id="@+id/tvPostcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPostcodeTitle"
+                        android:layout_marginBottom="10dp"
+                        android:text="666"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                    <TextView
+                        android:id="@+id/tvEmailT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPostcode"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/email" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvEmailT"
+                        android:layout_marginBottom="10dp"
+                        android:text="a@b.com"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                    <TextView
+                        android:id="@+id/tvPhoneT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvEmail"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/phone" />
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPhoneT"
+                        android:layout_marginBottom="10dp"
+                        android:text="+20525152"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvCityTitle"
-                android:layout_marginBottom="10dp"
-                android:text="Odessa"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                card_view:cardUseCompatPadding="true"
+                android:layout_below="@+id/cvContacts">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp">
+
+                    <TextView
+                        android:id="@+id/tvAccountInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/account_information"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tvUsernameT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvAccountInfo"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/username" />
+
+
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvUsernameT"
+                        android:layout_marginBottom="10dp"
+                        android:text="Lolium"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvPasswordT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvUsername"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/password" />
+
+                    <TextView
+                        android:id="@+id/tvPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPasswordT"
+                        android:layout_marginBottom="10dp"
+                        android:text="dsadadsa"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvSaltT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPassword"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/salt" />
+
+                    <TextView
+                        android:id="@+id/tvSalt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSaltT"
+                        android:layout_marginBottom="10dp"
+                        android:text="sadadad"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+
+                    <!-- divider -->
+                    <TextView
+                        android:id="@+id/tvMD5T"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSalt"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/md5" />
+
+                    <TextView
+                        android:id="@+id/tvMD5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvMD5T"
+                        android:layout_marginBottom="10dp"
+                        android:text="f80dsadada"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                    <TextView
+                        android:id="@+id/tvSha1T"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvMD5"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/sha1" />
+
+                    <TextView
+                        android:id="@+id/tvSha1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSha1T"
+                        android:layout_marginBottom="10dp"
+                        android:text="asdasda1231"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                    <TextView
+                        android:id="@+id/tvSha256T"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSha1"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/sha256" />
+
+                    <TextView
+                        android:id="@+id/tvSha256"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSha256T"
+                        android:layout_marginBottom="10dp"
+                        android:text="dzadadsada233131dsa"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+
+    </ScrollView>
+
+
 
 </RelativeLayout>

@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">RandomApplication</string>
     <string name="add_more">Add more</string>
+    <string name="account_information">Account Information</string>
+    <string name="password">Password</string>
+    <string name="sha256">SHA256</string>
+    <string name="sha1">SHA1</string>
+    <string name="md5">MD5</string>
+    <string name="salt">Salt</string>
+    <string name="username">Username</string>
+    <string name="phone">Phone</string>
+    <string name="postcode">Postcode</string>
+    <string name="email">Email</string>
+    <string name="street">Street</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="contacts">Contacts</string>
 </resources>
