@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createListOfGottenData() {
         /*
-            У них в API есть запрос только на 1го юзера, пришлось выдумать подобный костыль
+            В API есть запрос только на 1го юзера, пришлось выдумать подобное
          */
         int i = 0;
         while (i < 5) {
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserInfo> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "failure on enqueue", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
 

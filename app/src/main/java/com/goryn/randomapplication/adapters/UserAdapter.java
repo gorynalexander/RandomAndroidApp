@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 
 import com.google.gson.Gson;
-import com.goryn.randomapplication.models.User;
 import com.goryn.randomapplication.R;
 import com.goryn.randomapplication.models.UserInfo;
 import com.goryn.randomapplication.ui.UserActivity;
@@ -42,8 +41,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     public void onBindViewHolder(UserAdapter.ViewHolder holder, int position) {
         final UserInfo user = userList.get(position);
         try {
-            String firstName = user.getResults().get(0).getName().getFirst();
-            String lastName = user.getResults().get(0).getName().getLast();
+            String firstName = toUpperCase(user.getResults().get(0).getName().getFirst());
+            String lastName = toUpperCase(user.getResults().get(0).getName().getLast());
             String imageURL = user.getResults().get(0).getPicture().getMedium();
             holder.tvTestText.setText(firstName +" "+  lastName);
             Picasso.with(holder.circleImageView.getContext())
@@ -80,5 +79,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             circleImageView = (CircleImageView) itemView.findViewById(R.id.ivThumbnail);
             itemLayout = (RelativeLayout) itemView.findViewById(R.id.rlItemLayout);
         }
+    }
+
+    private String toUpperCase(String data) {
+        return data.substring(0, 1).toUpperCase() + data.substring(1);
     }
 }

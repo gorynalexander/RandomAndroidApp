@@ -5,6 +5,8 @@ import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,8 +34,6 @@ public class UserActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String userJson = intent.getStringExtra("user");
         user = new Gson().fromJson(userJson, UserInfo.class);
-        Toast.makeText(this, user.getResults().get(0).getName().getFirst(), Toast.LENGTH_SHORT).show();
-
         initUI();
 
     }
@@ -57,31 +57,23 @@ public class UserActivity extends AppCompatActivity {
 
 
         Result result = user.getResults().get(0);
+        String dob = result.getDob().substring(0, 11);
 
-//        String dateString = "03/26/2012 11:49:00 AM";
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
-//        Date convertedDate = new Date();
-//        try {
-//            convertedDate = dateFormat.parse(dateString);
-//        } catch (ParseException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//        System.out.println(convertedDate);
 
         try {
-            getSupportActionBar().setTitle(result.getName().getTitle() + " " + result.getName().getFirst()+ " " + result.getName().getLast());
-
+            getSupportActionBar().setTitle(toUpperCase(result.getName().getTitle()) + " " + toUpperCase(result.getName().getFirst())+ " " + toUpperCase(result.getName().getLast()));
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
             Picasso.with(this)
                     .load(result.getPicture().getLarge())
                     .resize(300, 300)
                     .into(ivAvatar);
-            tvBDay.setText(result.getDob());
-            tvGender.setText(result.getGender());
-            tvState.setText(result.getLocation().getState());
-            tvCity.setText(result.getLocation().getCity());
+            tvBDay.setText(dob);
+            tvGender.setText(toUpperCase(result.getGender()));
+            tvState.setText(toUpperCase(result.getLocation().getState()));
+            tvCity.setText(toUpperCase(result.getLocation().getCity()));
             tvStreet.setText(result.getLocation().getStreet());
-            //tvPostcode.setText(result.getLocation().getPostcode());
+            tvPostcode.setText(String.valueOf(result.getLocation().getPostcode()));
             tvEmail.setText(result.getEmail());
             tvPhone.setText(result.getPhone());
             tvUsername.setText(result.getLogin().getUsername());
@@ -93,5 +85,28 @@ public class UserActivity extends AppCompatActivity {
         } catch (NullPointerException ignored){}
 
 
+    }
+
+    private String toUpperCase(String data){
+        if (data.contains(" ")){
+            // for states which consist of 2 words
+            for (int i = 0; i<data.length(); i++){
+                if (data.charAt(i) == ' '){
+                    return data.substring(0, 1).toUpperCase() + data.substring(1, i+1) + data.substring(i+1, i+2).toUpperCase() + data.substring(i+2);
+                }
+            }
+        }
+        return data.substring(0,1).toUpperCase() + data.substring(1);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            this.onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

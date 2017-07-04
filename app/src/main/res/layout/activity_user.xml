@@ -134,7 +134,7 @@
                         android:text="Odessa"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
-                        android:textIsSelectable="true"/>
+                        android:textIsSelectable="true" />
 
                     <!-- divider -->
                     <TextView
@@ -171,7 +171,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvPostcodeTitle"
                         android:layout_marginBottom="10dp"
-                        android:text="666"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:textIsSelectable="true"/>
